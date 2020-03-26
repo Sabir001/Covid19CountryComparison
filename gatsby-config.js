@@ -80,6 +80,12 @@ module.exports = {
       }
     },
     {
+      resolve: "gatsby-source-rest-api",
+      options: {
+        endpoints: ["https://us-central1-team-rnd-wpdev-arcom.cloudfunctions.net/histories"]
+      }
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Covid19 Country Comparison`,
