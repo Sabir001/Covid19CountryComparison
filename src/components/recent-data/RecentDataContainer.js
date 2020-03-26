@@ -3,7 +3,7 @@ import axios from "axios";
 import { Col, Row, Label } from "reactstrap";
 import Loader from "../loader";
 
-function Container() {
+function RecentDataContainer() {
   const [totalCases, setTotalCases] = useState(0);
   const [totalRecovered, setTotalRecovered] = useState(0);
   const [totalUnresolved, setTotalUnresolved] = useState(0);
@@ -82,4 +82,4 @@ function Container() {
   );
 }
 
-export default Container;
+export default RecentDataContainer;
