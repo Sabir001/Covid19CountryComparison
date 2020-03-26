@@ -13,7 +13,7 @@ function Container() {
   const [totalActiveCases, setTotalActiveCases] = useState(0);
   const [totalSeriousCases, setTotalSeriousCases] = useState(0);
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const handleResult = data => {
     console.log(data)
