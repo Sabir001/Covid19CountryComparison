@@ -52,27 +52,27 @@ function Container() {
         <Loader />
       ) : (
         <Row>
-          <Col>
+          <Col xs="12" lg="12">
             <Label>Total Cases: </Label>
             {totalCases} <small>+{totalNewCasesToday}</small>
           </Col>
-          <Col>
+          <Col xs="12" lg="12">
             <Label>Total Deaths: </Label>
             {totalDeaths} <small>+{totalNewDeathsToday}</small>
           </Col>
-          <Col>
+          <Col xs="12" lg="12">
             <Label>Total Recovered: </Label>
             {totalRecovered}
           </Col>
-          <Col>
+          <Col xs="12" lg="12">
             <Label>Total Unresolved: </Label>
             {totalUnresolved}
           </Col>
-          <Col>
+          <Col xs="12" lg="12">
             <Label>Total Active Cases: </Label>
             {totalActiveCases}
           </Col>
-          <Col>
+          <Col xs="12" lg="12">
             <Label>Total Serious Cases: </Label>
             {totalSeriousCases}
           </Col>
