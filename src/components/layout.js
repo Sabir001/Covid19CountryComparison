@@ -30,16 +30,16 @@ const Layout = ({ children }) => {
       </div>
       <footer className="site-footer">
         <a
-          href="https://covid19comparison.iamsabir.com"
+          href="https://twitter.com/SharafatSabir"
           style={{
             marginRight: "30px",
             textDecoration: "none"
           }}
-          title="RSS Feed"
+          title="twitter"
           target="_blank"
           rel="noopener noreferrer"
         >
-          RSS
+          Twitter
         </a>
         © {new Date().getFullYear()}, Sabir
         <a
