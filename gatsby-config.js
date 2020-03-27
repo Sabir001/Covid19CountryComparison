@@ -82,7 +82,7 @@ module.exports = {
     {
       resolve: "gatsby-source-rest-api",
       options: {
-        endpoints: ["https://us-central1-team-rnd-wpdev-arcom.cloudfunctions.net/histories"]
+        endpoints: ["https://us-east1-covid19-country-comparison.cloudfunctions.net/histories "]
       }
     },
     {
