@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
 const HistoryContainer = () => {
@@ -29,10 +29,6 @@ const HistoryContainer = () => {
       }
     }
   `);
-
-  useEffect(() => {
-    console.log(data);
-  }, []);
 
   return (
     <div>

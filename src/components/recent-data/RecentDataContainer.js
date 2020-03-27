@@ -16,8 +16,6 @@ function RecentDataContainer() {
   const [loading, setLoading] = useState(true);
 
   const handleResult = data => {
-    console.log(data)
-    console.log(data && data.results[0])
     if (data && data.results && data.results[0]) {
       setTotalCases(data.results[0].total_cases);
       setTotalRecovered(data.results[0].total_recovered);
