@@ -18,6 +18,12 @@ const HistoryContainer = () => {
                 recovered
               }
             }
+            dateWiseTotal {
+              date
+              recovered
+              confirmed
+              deaths
+            }
           }
         }
       }
