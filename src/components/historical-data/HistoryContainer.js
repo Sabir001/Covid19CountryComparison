@@ -7,13 +7,16 @@ const HistoryContainer = () => {
       allRestApiHistories {
         edges {
           node {
-            id
-            country
-            histories {
-              date
-              recovered
-              confirmed
-              deaths
+            countries
+            result {
+              id
+              country
+              histories {
+                confirmed
+                date
+                deaths
+                recovered
+              }
             }
           }
         }
