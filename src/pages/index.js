@@ -12,10 +12,10 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Covid19 Country Comparison" pathName="/" />
     <Row>
-      <Col xs="12" sm="12" md="3" lg="3">
+      <Col xs="12" sm="12" md="4" lg="4">
         <RecentDataContainer />
       </Col>
-      <Col xs="12" sm="12" md="9" lg="9">
+      <Col xs="12" sm="12" md="8" lg="8">
         <HistoryContainer />
       </Col>
     </Row>

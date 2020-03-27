@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Col, Row, Label } from "reactstrap";
 import Loader from "../loader";
+import RecentData from "./RecentData";
+import PieChart from "./PieChart";
 
 function RecentDataContainer() {
   const [totalCases, setTotalCases] = useState(0);
@@ -44,38 +45,27 @@ function RecentDataContainer() {
       .catch(e => handleError(e));
   }, []);
 
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <div>
-      {loading ? (
-        <Loader />
-      ) : (
-        <Row>
-          <Col xs="12" lg="12">
-            <Label>Total Cases: </Label>
-            {totalCases} <small>+{totalNewCasesToday}</small>
-          </Col>
-          <Col xs="12" lg="12">
-            <Label>Total Deaths: </Label>
-            {totalDeaths} <small>+{totalNewDeathsToday}</small>
-          </Col>
-          <Col xs="12" lg="12">
-            <Label>Total Recovered: </Label>
-            {totalRecovered}
-          </Col>
-          <Col xs="12" lg="12">
-            <Label>Total Unresolved: </Label>
-            {totalUnresolved}
-          </Col>
-          <Col xs="12" lg="12">
-            <Label>Total Active Cases: </Label>
-            {totalActiveCases}
-          </Col>
-          <Col xs="12" lg="12">
-            <Label>Total Serious Cases: </Label>
-            {totalSeriousCases}
-          </Col>
-        </Row>
-      )}
+      <PieChart
+        totalRecovered={totalRecovered}
+        totalUnresolved={totalUnresolved}
+        totalDeaths={totalDeaths}
+      />
+      <RecentData
+        totalCases={totalCases}
+        totalRecovered={totalRecovered}
+        totalUnresolved={totalUnresolved}
+        totalDeaths={totalDeaths}
+        totalNewCasesToday={totalNewCasesToday}
+        totalNewDeathsToday={totalNewDeathsToday}
+        totalActiveCases={totalActiveCases}
+        totalSeriousCases={totalSeriousCases}
+      />
     </div>
   );
 }
