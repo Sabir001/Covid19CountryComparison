@@ -1,8 +1,9 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import BarChart from "./BarChart";
 
 const HistoryContainer = () => {
-  const data = useStaticQuery(graphql`
+  const chartData = useStaticQuery(graphql`
     query {
       allRestApiHistories {
         edges {
@@ -32,7 +33,7 @@ const HistoryContainer = () => {
 
   return (
     <div>
-      <h1>Source Rest Api</h1>
+      <BarChart chartData={chartData} />
     </div>
   );
 };
