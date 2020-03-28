@@ -14,7 +14,7 @@ const BarChart = ({ chartData }) => {
   ) {
     for (
       let i = 0;
-      i < 7 &&
+      i < 10 &&
       i < chartData.allRestApiHistories.edges[0].node.dateWiseTotal.length;
       i++
     ) {
@@ -40,7 +40,25 @@ const BarChart = ({ chartData }) => {
       }
     ]
   };
-  return <HorizontalBar data={barData} />;
+  return (
+    <HorizontalBar
+      options={{
+        legend: {
+          onClick: e => e.stopPropagation()
+        }
+        // scales: {
+        //   xAxes: [
+        //     {
+        //       ticks: {
+        //         beginAtZero: true
+        //       }
+        //     }
+        //   ]
+        // }
+      }}
+      data={barData}
+    />
+  );
 };
 
 export default BarChart;
