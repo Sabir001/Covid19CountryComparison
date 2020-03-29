@@ -41,6 +41,9 @@ export const getCountryOptionList = chartData => {
 };
 
 export const getCountryWiseData = (chartData, selectedCountry, days) => {
+  if (selectedCountry === "all") {
+    return getWorldWideData(chartData, days);
+  }
   let data = [];
   let labels = [];
   if (
