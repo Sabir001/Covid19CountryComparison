@@ -25,3 +25,41 @@ export const getWorldWideData = (chartData, days) => {
   }
   return { data, labels };
 };
+
+export const getCountryOptionList = chartData => {
+  let countryOptionList = [{ value: "all", label: "All Countries" }];
+  chartData &&
+    chartData.allRestApiHistories &&
+    chartData.allRestApiHistories.edges &&
+    chartData.allRestApiHistories.edges[0] &&
+    chartData.allRestApiHistories.edges[0].node &&
+    chartData.allRestApiHistories.edges[0].node.countries.map(item => {
+      countryOptionList.push({ value: item, label: item });
+    });
+
+  return countryOptionList;
+};
+
+export const getCountryWiseData = (chartData, selectedCountry, days) => {
+  let data = [];
+  let labels = [];
+  if (
+    chartData &&
+    chartData.allRestApiHistories &&
+    chartData.allRestApiHistories.edges &&
+    chartData.allRestApiHistories.edges[0] &&
+    chartData.allRestApiHistories.edges[0].node &&
+    chartData.allRestApiHistories.edges[0].node.result
+  ) {
+    chartData.allRestApiHistories.edges[0].node.result.map(item => {
+      if (item && item.country === selectedCountry) {
+        let histories = item && item.histories.slice().reverse();
+        for (let i = 0; i < days && i < histories.length; i++) {
+          data.push(histories[i].confirmed);
+          labels.push(histories[i].date);
+        }
+      }
+    });
+  }
+  return { data, labels };
+};

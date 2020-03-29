@@ -1,5 +1,6 @@
 import React from "react";
 import { HorizontalBar } from "react-chartjs-2";
+import { Col } from "reactstrap";
 
 const BarChartContainer = ({ barData, barLabel, options }) => {
   const horizontalBarData = {
@@ -16,7 +17,11 @@ const BarChartContainer = ({ barData, barLabel, options }) => {
       }
     ]
   };
-  return <HorizontalBar options={options} data={horizontalBarData} />;
+  return (
+    <Col md="12" xs="12">
+      <HorizontalBar options={options} data={horizontalBarData} />
+    </Col>
+  );
 };
 
 export default BarChartContainer;

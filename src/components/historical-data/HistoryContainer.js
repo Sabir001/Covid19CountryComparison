@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import { Row } from "reactstrap";
 import BarChartContainer from "./BarChartContainer";
 
 const HistoryContainer = () => {
@@ -32,9 +33,9 @@ const HistoryContainer = () => {
   `);
 
   return (
-    <div>
+    <Row>
       <BarChartContainer chartData={chartData} />
-    </div>
+    </Row>
   );
 };
 
