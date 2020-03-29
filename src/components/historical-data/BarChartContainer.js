@@ -45,6 +45,11 @@ const BarChartContainer = ({ chartData }) => {
         }}
         barData={barData}
         barLabel={barLabel}
+        datasetLabel={
+          selectedCountry === "all"
+            ? "World Wide Confirmed Cases"
+            : `${selectedCountry}'s  Confirmed Cases`
+        }
       />
     </>
   );
