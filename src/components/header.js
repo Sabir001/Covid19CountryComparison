@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-import { Col, Navbar, NavbarBrand, Nav, NavItem } from "reactstrap";
+import { Col, Navbar, NavbarBrand, Nav } from "reactstrap";
 import DarkMode from "./darkMode";
 
 import "../styles/index.scss";

@@ -48,7 +48,6 @@ module.exports = {
             }
           },
           `gatsby-remark-autolink-headers`,
-          `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`
         ]
@@ -58,12 +57,6 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "UA-148694175-1"
-      }
-    },
-    {
-      resolve: `gatsby-plugin-facebook-pixel`,
-      options: {
-        pixelId: "1403512336492072"
       }
     },
     `gatsby-plugin-sitemap`,
