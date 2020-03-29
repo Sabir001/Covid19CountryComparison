@@ -7,7 +7,11 @@ const Filter = ({ countryOption, selectedCountry, handleCountryChange }) => {
     <Col md="12" xs="12">
       <Select
         options={countryOption}
-        value={selectedCountry}
+        value={
+          selectedCountry === "all"
+            ? { value: "all", label: "All Countries" }
+            : { value: selectedCountry, label: selectedCountry }
+        }
         onChange={handleCountryChange}
       />
     </Col>
