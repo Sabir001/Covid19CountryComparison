@@ -12,20 +12,6 @@ const BarChartContainer = ({ chartData }) => {
     setBarLabel(labels);
   }, [chartData]);
 
-  const horizontalBarData = {
-    labels: [...barLabel],
-    datasets: [
-      {
-        label: "World Wide Confirmed Cases",
-        backgroundColor: "rgba(255,99,132,0.2)",
-        borderColor: "rgba(255,99,132,1)",
-        borderWidth: 1,
-        hoverBackgroundColor: "rgba(255,99,132,0.4)",
-        hoverBorderColor: "rgba(255,99,132,1)",
-        data: [...barData]
-      }
-    ]
-  };
   return (
     <BarChart
       options={{
@@ -33,7 +19,8 @@ const BarChartContainer = ({ chartData }) => {
           onClick: e => e.stopPropagation()
         }
       }}
-      horizontalBarData={horizontalBarData}
+      barData={barData}
+      barLabel={barLabel}
     />
   );
 };
