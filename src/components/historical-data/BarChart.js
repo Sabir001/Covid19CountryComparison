@@ -1,33 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { HorizontalBar } from "react-chartjs-2";
+import { getWorldWideData } from "../../utils/helper";
 
 const BarChart = ({ chartData }) => {
-  let labels = [];
-  let data = [];
-  if (
-    chartData &&
-    chartData.allRestApiHistories &&
-    chartData.allRestApiHistories.edges &&
-    chartData.allRestApiHistories.edges[0] &&
-    chartData.allRestApiHistories.edges[0].node &&
-    chartData.allRestApiHistories.edges[0].node.dateWiseTotal
-  ) {
-    for (
-      let i = 0;
-      i < 10 &&
-      i < chartData.allRestApiHistories.edges[0].node.dateWiseTotal.length;
-      i++
-    ) {
-      labels.push(
-        chartData.allRestApiHistories.edges[0].node.dateWiseTotal[i].date
-      );
-      data.push(
-        chartData.allRestApiHistories.edges[0].node.dateWiseTotal[i].confirmed
-      );
-    }
-  }
-  const barData = {
-    labels: [...labels],
+  const [barData, setBarData] = useState([]);
+  const [barLabel, setBarLabel] = useState([]);
+
+  useEffect(() => {
+    const { data, labels } = getWorldWideData(chartData, 10);
+    setBarData(data);
+    setBarLabel(labels);
+  }, [chartData]);
+
+  const horizontalBarData = {
+    labels: [...barLabel],
     datasets: [
       {
         label: "World Wide Confirmed Cases",
@@ -36,7 +22,7 @@ const BarChart = ({ chartData }) => {
         borderWidth: 1,
         hoverBackgroundColor: "rgba(255,99,132,0.4)",
         hoverBorderColor: "rgba(255,99,132,1)",
-        data: [...data]
+        data: [...barData]
       }
     ]
   };
@@ -46,17 +32,8 @@ const BarChart = ({ chartData }) => {
         legend: {
           onClick: e => e.stopPropagation()
         }
-        // scales: {
-        //   xAxes: [
-        //     {
-        //       ticks: {
-        //         beginAtZero: true
-        //       }
-        //     }
-        //   ]
-        // }
       }}
-      data={barData}
+      data={horizontalBarData}
     />
   );
 };
