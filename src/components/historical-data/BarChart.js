@@ -1,41 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { HorizontalBar } from "react-chartjs-2";
-import { getWorldWideData } from "../../utils/helper";
 
-const BarChart = ({ chartData }) => {
-  const [barData, setBarData] = useState([]);
-  const [barLabel, setBarLabel] = useState([]);
+const BarChartContainer = ({ horizontalBarData, options }) => (
+  <HorizontalBar options={options} data={horizontalBarData} />
+);
 
-  useEffect(() => {
-    const { data, labels } = getWorldWideData(chartData, 10);
-    setBarData(data);
-    setBarLabel(labels);
-  }, [chartData]);
-
-  const horizontalBarData = {
-    labels: [...barLabel],
-    datasets: [
-      {
-        label: "World Wide Confirmed Cases",
-        backgroundColor: "rgba(255,99,132,0.2)",
-        borderColor: "rgba(255,99,132,1)",
-        borderWidth: 1,
-        hoverBackgroundColor: "rgba(255,99,132,0.4)",
-        hoverBorderColor: "rgba(255,99,132,1)",
-        data: [...barData]
-      }
-    ]
-  };
-  return (
-    <HorizontalBar
-      options={{
-        legend: {
-          onClick: e => e.stopPropagation()
-        }
-      }}
-      data={horizontalBarData}
-    />
-  );
-};
-
-export default BarChart;
+export default BarChartContainer;

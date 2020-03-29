@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import BarChart from "./BarChart";
+import BarChartContainer from "./BarChartContainer";
 
 const HistoryContainer = () => {
   const chartData = useStaticQuery(graphql`
@@ -33,7 +33,7 @@ const HistoryContainer = () => {
 
   return (
     <div>
-      <BarChart chartData={chartData} />
+      <BarChartContainer chartData={chartData} />
     </div>
   );
 };
