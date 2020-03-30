@@ -9,6 +9,7 @@ import {
 
 const BarChartContainer = ({ chartData }) => {
   const [barData, setBarData] = useState([]);
+  const [dataType, setDataType] = useState("confirmed");
   const [barLabel, setBarLabel] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("all");
   const [countryOption, setCountryOption] = useState([]);
@@ -17,18 +18,38 @@ const BarChartContainer = ({ chartData }) => {
     setSelectedCountry(e.value);
   };
 
+  const changeDataType = e => {
+    setDataType(e.value);
+  };
+
   useEffect(() => {
-    const { data, labels } = getWorldWideData(chartData, 10);
+    const { data, labels } = getWorldWideData(chartData, 10, dataType);
     setCountryOption(getCountryOptionList(chartData));
     setBarData(data);
     setBarLabel(labels);
   }, [chartData]);
 
   useEffect(() => {
-    const { data, labels } = getCountryWiseData(chartData, selectedCountry, 10);
+    const { data, labels } = getCountryWiseData(
+      chartData,
+      selectedCountry,
+      10,
+      dataType
+    );
     setBarData(data);
     setBarLabel(labels);
   }, [selectedCountry]);
+
+  useEffect(() => {
+    const { data, labels } = getCountryWiseData(
+      chartData,
+      selectedCountry,
+      10,
+      dataType
+    );
+    setBarData(data);
+    setBarLabel(labels);
+  }, [dataType]);
 
   return (
     <>
@@ -36,6 +57,8 @@ const BarChartContainer = ({ chartData }) => {
         countryOption={countryOption}
         selectedCountry={selectedCountry}
         handleCountryChange={handleCountryChange}
+        dataType={dataType}
+        changeDataType={changeDataType}
       />
       <BarChart
         options={{
@@ -47,8 +70,8 @@ const BarChartContainer = ({ chartData }) => {
         barLabel={barLabel}
         datasetLabel={
           selectedCountry === "all"
-            ? "World Wide Confirmed Cases"
-            : `${selectedCountry}'s  Confirmed Cases`
+            ? `World Wide ${dataType} Cases`
+            : `${selectedCountry}'s  ${dataType} cases`
         }
       />
     </>

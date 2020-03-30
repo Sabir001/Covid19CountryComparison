@@ -1,4 +1,4 @@
-export const getWorldWideData = (chartData, days) => {
+export const getWorldWideData = (chartData, days, dataType) => {
   let data = [];
   let labels = [];
   if (
@@ -19,7 +19,9 @@ export const getWorldWideData = (chartData, days) => {
         chartData.allRestApiHistories.edges[0].node.dateWiseTotal[i].date
       );
       data.push(
-        chartData.allRestApiHistories.edges[0].node.dateWiseTotal[i].confirmed
+        chartData.allRestApiHistories.edges[0].node.dateWiseTotal[i][
+          `${dataType}`
+        ]
       );
     }
   }
@@ -40,9 +42,14 @@ export const getCountryOptionList = chartData => {
   return countryOptionList;
 };
 
-export const getCountryWiseData = (chartData, selectedCountry, days) => {
+export const getCountryWiseData = (
+  chartData,
+  selectedCountry,
+  days,
+  dataType
+) => {
   if (selectedCountry === "all") {
-    return getWorldWideData(chartData, days);
+    return getWorldWideData(chartData, days, dataType);
   }
   let data = [];
   let labels = [];
@@ -58,7 +65,7 @@ export const getCountryWiseData = (chartData, selectedCountry, days) => {
       if (item && item.country === selectedCountry) {
         let histories = item && item.histories.slice().reverse();
         for (let i = 0; i < days && i < histories.length; i++) {
-          data.push(histories[i].confirmed);
+          data.push(histories[i][`${dataType}`]);
           labels.push(histories[i].date);
         }
       }
