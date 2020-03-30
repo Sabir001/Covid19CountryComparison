@@ -3,12 +3,6 @@ $foreground: hsla(0,0%,100%,0.90);
 $accent: #303030;
 $dark-border: darken($background, 3%);
 
-$color_dodger_gray_approx: #ddd;
-$color_mercury_approx: #e5e3e3;
-$color_shark_approx: #282828;
-$color_regent_gray_approx: #8997a7;
-$white: #fff;
-$mercury: #e5e5e5;
 
 .dark {
   background: $background;
@@ -16,58 +10,6 @@ $mercury: #e5e5e5;
 
   #___gatsby {
     background-color: $background;
-  }
-
-  .pricing-table-4 {
-    border: 1px solid $foreground;
-    
-    &:after {
-      background-color: $color_mercury_approx;
-    }
-
-    &:hover {
-      .price-header {
-        .title {
-          color: $dark-border;
-        }
-        .icon {
-          color: $background;
-        }
-        .price {
-          color: $background;
-        }
-      }
-      .price-body ul li {
-        color: lighten($background, 2%);
-      }
-      .price-footer .order-btn {
-        background-color: $white;
-        color: $color_shark_approx;
-      }
-    }
-    .price-header {
-      .title {
-        color: $color_mercury_approx;
-      }
-      .icon {
-        color: $color_dodger_gray_approx;
-      }
-      .price {
-        color: $color_dodger_gray_approx;
-      }
-    }
-    .price-footer {
-      .order-btn {
-        
-        color: $background;
-        background-color: $color_dodger_gray_approx;
-      }
-    }
-    .price-body ul {
-      li {
-        color: $color_regent_gray_approx;
-      }
-    }
   }
 
   h1 {
@@ -133,7 +75,7 @@ $mercury: #e5e5e5;
       }
     }
   }
-
+  
   a {
     color: lighten($primary-color, 10%);
 
