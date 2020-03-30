@@ -1,8 +1,7 @@
 $background: #202020;
-$foreground: hsla(0,0%,100%,0.90);
+$foreground: hsla(0, 0%, 100%, 0.9);
 $accent: #303030;
 $dark-border: darken($background, 3%);
-
 
 .dark {
   background: $background;
@@ -28,7 +27,7 @@ $dark-border: darken($background, 3%);
   .navbar-light .navbar-nav .nav-link,
   .navbar-light .navbar-brand {
     color: $foreground !important;
-    opacity: .9;
+    opacity: 0.9;
     &:hover {
       color: $foreground;
       opacity: 1;
@@ -39,22 +38,32 @@ $dark-border: darken($background, 3%);
     padding: 0;
   }
 
+  .country-selector {
+    div {
+      background-color: $background;
+      color: $foreground;
+      &:hover {
+        background-color: $dark-border;
+      }
+    }
+  }
+
   .site-footer {
     background-color: $background;
     padding: 10px;
     text-align: center;
-  
+
     .footer-social-links {
       text-align: center;
-  
+
       ul.social-links-list {
         li {
           margin-right: 25px;
           display: inline-block;
-  
+
           a {
             color: $foreground;
-  
+
             &.instagram:hover {
               color: #e95950;
             }
@@ -75,7 +84,7 @@ $dark-border: darken($background, 3%);
       }
     }
   }
-  
+
   a {
     color: lighten($primary-color, 10%);
 
@@ -135,7 +144,7 @@ $dark-border: darken($background, 3%);
   h3,
   h4,
   h5 {
-    color: hsla(0,0%,100%,0.98);
+    color: hsla(0, 0%, 100%, 0.98);
   }
 
   th {
@@ -154,5 +163,4 @@ $dark-border: darken($background, 3%);
   tbody tr:nth-child(even) {
     background-color: lighten($background, 5%);
   }
-
 }
