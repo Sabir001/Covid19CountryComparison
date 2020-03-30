@@ -1,6 +1,6 @@
 import React from "react";
 import Select from "react-select";
-import { Col } from "reactstrap";
+import { Col, Label } from "reactstrap";
 
 const Filter = ({
   countryOption,
@@ -11,7 +11,10 @@ const Filter = ({
 }) => {
   return (
     <>
-      <Col md="12" xs="12">
+      <Col md="4" xs="12">
+        <Label>Select Data Type</Label>
+      </Col>
+      <Col md="8" xs="12">
         <Select
           options={[
             { label: "confirmed", value: "confirmed" },
@@ -24,7 +27,10 @@ const Filter = ({
           onChange={changeDataType}
         />
       </Col>
-      <Col md="12" xs="12">
+      <Col md="4" xs="12" style={{ marginTop: "10px" }}>
+        <Label>Select Country</Label>
+      </Col>
+      <Col md="8" xs="12"  style={{ marginTop: "10px" }}>
         <Select
           options={countryOption}
           className="country-selector"
