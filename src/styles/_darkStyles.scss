@@ -48,6 +48,25 @@ $dark-border: darken($background, 3%);
     }
   }
 
+  .react-datepicker__header {
+    background-color: $background;
+    div {
+      color: $foreground;
+    }
+  }
+
+  .react-datepicker-wrapper {
+    div {
+      background-color: $background;
+      color: $foreground;
+
+      input {
+        background-color: $background;
+        color: $foreground;
+      }
+    }
+  }
+
   .site-footer {
     background-color: $background;
     padding: 10px;

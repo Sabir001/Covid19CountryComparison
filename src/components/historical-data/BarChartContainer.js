@@ -15,7 +15,7 @@ const BarChartContainer = ({ chartData }) => {
   const [countryOption, setCountryOption] = useState([]);
   const today = new Date();
   const maxDate = new Date().setDate(today.getDate() - 1);
-  const minDate = new Date(2020, 1, 22);
+  const minDate = new Date(2020, 0, 22);
   const [startDate, setStartDate] = useState(
     new Date().setDate(today.getDate() - 11)
   );

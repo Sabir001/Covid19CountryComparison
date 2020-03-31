@@ -1,7 +1,7 @@
 .container#content {
   margin-top: 60px;
 }
-@media(max-width: 1200px) {
+@media (max-width: 1200px) {
   .container {
     margin-left: 0px !important;
     margin-right: 0px !important;
@@ -27,7 +27,7 @@ body {
 .navbar.compressed {
   padding-top: 5px;
   padding-bottom: 5px;
-  background-color: #F9FAFB;
+  background-color: #f9fafb;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 .navbar-light .navbar-nav .nav-link,
@@ -40,4 +40,12 @@ body {
 ul {
   list-style: none;
   padding: 0;
+}
+.react-datepicker-wrapper {
+  width: 100%;
+}
+.react-datepicker__input-container {
+  input {
+    width: 100%;
+  }
 }
