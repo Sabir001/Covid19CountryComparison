@@ -1,6 +1,10 @@
-export const getWorldWideData = (chartData, days, dataType) => {
+import moment from "moment";
+
+export const getWorldWideData = (chartData, startDate, endDate, dataType) => {
   let data = [];
   let labels = [];
+  const start = moment(startDate);
+  const end = moment(endDate);
   if (
     chartData &&
     chartData.allRestApiHistories &&
@@ -9,21 +13,15 @@ export const getWorldWideData = (chartData, days, dataType) => {
     chartData.allRestApiHistories.edges[0].node &&
     chartData.allRestApiHistories.edges[0].node.dateWiseTotal
   ) {
-    for (
-      let i = 0;
-      i < days &&
-      i < chartData.allRestApiHistories.edges[0].node.dateWiseTotal.length;
-      i++
-    ) {
-      labels.push(
-        chartData.allRestApiHistories.edges[0].node.dateWiseTotal[i].date
-      );
-      data.push(
-        chartData.allRestApiHistories.edges[0].node.dateWiseTotal[i][
-          `${dataType}`
-        ]
-      );
-    }
+    chartData.allRestApiHistories.edges[0].node.dateWiseTotal.map(dayData => {
+      if (
+        moment(dayData.date).isSameOrAfter(start) &&
+        moment(dayData.date).isSameOrBefore(end)
+      ) {
+        labels.push(dayData.date);
+        data.push(dayData[`${dataType}`]);
+      }
+    });
   }
   return { data, labels };
 };
@@ -45,14 +43,17 @@ export const getCountryOptionList = chartData => {
 export const getCountryWiseData = (
   chartData,
   selectedCountry,
-  days,
+  startDate,
+  endDate,
   dataType
 ) => {
   if (selectedCountry === "all") {
-    return getWorldWideData(chartData, days, dataType);
+    return getWorldWideData(chartData, startDate, endDate, dataType);
   }
   let data = [];
   let labels = [];
+  const start = moment(startDate);
+  const end = moment(endDate);
   if (
     chartData &&
     chartData.allRestApiHistories &&
@@ -64,10 +65,15 @@ export const getCountryWiseData = (
     chartData.allRestApiHistories.edges[0].node.result.map(item => {
       if (item && item.country === selectedCountry) {
         let histories = item && item.histories.slice().reverse();
-        for (let i = 0; i < days && i < histories.length; i++) {
-          data.push(histories[i][`${dataType}`]);
-          labels.push(histories[i].date);
-        }
+        histories.map(history => {
+          if (
+            moment(history.date).isSameOrAfter(start) &&
+            moment(history.date).isSameOrBefore(end)
+          ) {
+            data.push(history[`${dataType}`]);
+            labels.push(history.date);
+          }
+        });
       }
     });
   }

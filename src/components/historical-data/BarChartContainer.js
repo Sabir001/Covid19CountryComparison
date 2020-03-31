@@ -32,7 +32,12 @@ const BarChartContainer = ({ chartData }) => {
   };
 
   useEffect(() => {
-    const { data, labels } = getWorldWideData(chartData, 10, dataType);
+    const { data, labels } = getWorldWideData(
+      chartData,
+      startDate,
+      endDate,
+      dataType
+    );
     setCountryOption(getCountryOptionList(chartData));
     setBarData(data);
     setBarLabel(labels);
@@ -42,23 +47,13 @@ const BarChartContainer = ({ chartData }) => {
     const { data, labels } = getCountryWiseData(
       chartData,
       selectedCountry,
-      10,
+      startDate,
+      endDate,
       dataType
     );
     setBarData(data);
     setBarLabel(labels);
-  }, [selectedCountry]);
-
-  useEffect(() => {
-    const { data, labels } = getCountryWiseData(
-      chartData,
-      selectedCountry,
-      10,
-      dataType
-    );
-    setBarData(data);
-    setBarLabel(labels);
-  }, [dataType]);
+  }, [selectedCountry, startDate, endDate, dataType]);
 
   return (
     <>
