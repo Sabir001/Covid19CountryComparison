@@ -13,6 +13,15 @@ const BarChartContainer = ({ chartData }) => {
   const [barLabel, setBarLabel] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("all");
   const [countryOption, setCountryOption] = useState([]);
+  const today = new Date();
+  const maxDate = new Date().setDate(today.getDate() - 1);
+  const minDate = new Date(2020, 1, 22);
+  const [startDate, setStartDate] = useState(
+    new Date().setDate(today.getDate() - 11)
+  );
+  const [endDate, setEndDate] = useState(
+    new Date().setDate(today.getDate() - 1)
+  );
 
   const handleCountryChange = e => {
     setSelectedCountry(e.value);
@@ -59,6 +68,12 @@ const BarChartContainer = ({ chartData }) => {
         handleCountryChange={handleCountryChange}
         dataType={dataType}
         changeDataType={changeDataType}
+        startDate={startDate}
+        setStartDate={setStartDate}
+        endDate={endDate}
+        setEndDate={setEndDate}
+        maxDate={maxDate}
+        minDate={minDate}
       />
       <BarChart
         options={{
