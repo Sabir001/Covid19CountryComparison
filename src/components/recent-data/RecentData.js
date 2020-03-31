@@ -13,28 +13,24 @@ const RecentData = ({
 }) => (
   <Row>
     <Col xs="12" lg="12">
-      <Label>Total Cases: </Label>
-      {totalCases} <small>+{totalNewCasesToday}</small>
+      <Label>Total Cases: </Label> {totalCases}{" "}
+      <small>+{totalNewCasesToday}</small>
     </Col>
     <Col xs="12" lg="12">
-      <Label>Total Deaths: </Label>
-      {totalDeaths} <small>+{totalNewDeathsToday}</small>
+      <Label>Total Deaths: </Label> {totalDeaths}{" "}
+      <small>+{totalNewDeathsToday}</small>
     </Col>
     <Col xs="12" lg="12">
-      <Label>Total Recovered: </Label>
-      {totalRecovered}
+      <Label>Total Recovered: </Label> {totalRecovered}
     </Col>
     <Col xs="12" lg="12">
-      <Label>Total Unresolved: </Label>
-      {totalUnresolved}
+      <Label>Total Unresolved: </Label> {totalUnresolved}
     </Col>
     <Col xs="12" lg="12">
-      <Label>Total Active Cases: </Label>
-      {totalActiveCases}
+      <Label>Total Active Cases: </Label> {totalActiveCases}
     </Col>
     <Col xs="12" lg="12">
-      <Label>Total Serious Cases: </Label>
-      {totalSeriousCases}
+      <Label>Total Serious Cases: </Label> {totalSeriousCases}
     </Col>
   </Row>
 );
