@@ -14,9 +14,14 @@ const getWorldWideData = (chartData, startDate, endDate, dataType) => {
     chartData.allRestApiHistories.edges[0].node.dateWiseTotal
   ) {
     chartData.allRestApiHistories.edges[0].node.dateWiseTotal.map(dayData => {
+      const date = dayData.date.split("-");
+      const tempDate = moment(
+        date[0] + "-" + ("0" + date[1]).slice(-2) + ("0" + date[2]).slice(-2),
+        "YYYY-MM-DD"
+      );
       if (
-        start.isSameOrBefore(dayData.date, "day") &&
-        end.isSameOrAfter(dayData.date, "day")
+        start.isSameOrBefore(tempDate, "day") &&
+        end.isSameOrAfter(tempDate, "day")
       ) {
         labels.push(dayData.date);
         data.push(dayData[`${dataType}`]);
@@ -66,9 +71,17 @@ export const getCountryWiseData = (
       if (item && item.country === selectedCountry) {
         let histories = item && item.histories.slice().reverse();
         histories.map(history => {
+          const date = history.date.split("-");
+          const tempDate = moment(
+            date[0] +
+              "-" +
+              ("0" + date[1]).slice(-2) +
+              ("0" + date[2]).slice(-2),
+            "YYYY-MM-DD"
+          );
           if (
-            start.isSameOrBefore(history.date, "day") &&
-            end.isSameOrAfter(history.date, "day")
+            start.isSameOrBefore(tempDate, "day") &&
+            end.isSameOrAfter(tempDate, "day")
           ) {
             data.push(history[`${dataType}`]);
             labels.push(history.date);
