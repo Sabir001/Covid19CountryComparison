@@ -1,6 +1,6 @@
 import moment from "moment";
 
-export const getWorldWideData = (chartData, startDate, endDate, dataType) => {
+const getWorldWideData = (chartData, startDate, endDate, dataType) => {
   let data = [];
   let labels = [];
   const start = moment(startDate);

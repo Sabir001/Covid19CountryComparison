@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import BarChart from "./BarChart";
 import Filter from "./Filter";
 import {
-  getWorldWideData,
   getCountryOptionList,
   getCountryWiseData
 } from "../../utils/helper";
@@ -32,15 +31,7 @@ const BarChartContainer = ({ chartData }) => {
   };
 
   useEffect(() => {
-    const { data, labels } = getWorldWideData(
-      chartData,
-      startDate,
-      endDate,
-      dataType
-    );
     setCountryOption(getCountryOptionList(chartData));
-    setBarData(data);
-    setBarLabel(labels);
   }, [chartData]);
 
   useEffect(() => {
@@ -53,7 +44,7 @@ const BarChartContainer = ({ chartData }) => {
     );
     setBarData(data);
     setBarLabel(labels);
-  }, [selectedCountry, startDate, endDate, dataType]);
+  }, [selectedCountry, startDate, endDate, dataType, chartData]);
 
   return (
     <>
