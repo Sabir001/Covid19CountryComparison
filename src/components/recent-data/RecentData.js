@@ -4,33 +4,25 @@ import { Col, Row, Label } from "reactstrap";
 const RecentData = ({
   totalCases,
   totalRecovered,
-  totalUnresolved,
   totalDeaths,
-  totalNewCasesToday,
-  totalNewDeathsToday,
   totalActiveCases,
-  totalSeriousCases
+  affectedCountries
 }) => (
   <Row>
     <Col xs="12" lg="12">
-      <Label>Total Cases: </Label> {totalCases}{" "}
-      <small>+{totalNewCasesToday}</small>
+      <Label>Total Cases: </Label> {totalCases}
     </Col>
     <Col xs="12" lg="12">
-      <Label>Total Deaths: </Label> {totalDeaths}{" "}
-      <small>+{totalNewDeathsToday}</small>
+      <Label>Total Deaths: </Label> {totalDeaths}
     </Col>
     <Col xs="12" lg="12">
       <Label>Total Recovered: </Label> {totalRecovered}
     </Col>
     <Col xs="12" lg="12">
-      <Label>Total Unresolved: </Label> {totalUnresolved}
-    </Col>
-    <Col xs="12" lg="12">
       <Label>Total Active Cases: </Label> {totalActiveCases}
     </Col>
     <Col xs="12" lg="12">
-      <Label>Total Serious Cases: </Label> {totalSeriousCases}
+      <Label>Total Affected Countries: </Label> {affectedCountries}
     </Col>
   </Row>
 );
