@@ -35,7 +35,7 @@ const Layout = ({ children }) => {
             marginRight: "30px",
             textDecoration: "none"
           }}
-          title="twitter"
+          title="Sabir twitter"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -43,8 +43,8 @@ const Layout = ({ children }) => {
         </a>
         © {new Date().getFullYear()}, Sabir
         <a
-          href="https://www.facebook.com/sabir01/"
-          title="Sabir"
+          href="https://www.linkedin.com/in/sharafat-ahmed-sabir/"
+          title="Sabir LinkedIn"
           style={{
             marginLeft: "30px",
             textDecoration: "none"
@@ -52,7 +52,7 @@ const Layout = ({ children }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Facebook
+          LinkedIn
         </a>
       </footer>
     </>
