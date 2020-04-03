@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import BarChart from "./BarChart";
 import Filter from "./Filter";
-import {
-  getCountryOptionList,
-  getCountryWiseData
-} from "../../utils/helper";
+import { getCountryOptionList, getCountryWiseData } from "../../utils/helper";
 
 const BarChartContainer = ({ chartData }) => {
   const [barData, setBarData] = useState([]);
@@ -12,6 +9,8 @@ const BarChartContainer = ({ chartData }) => {
   const [barLabel, setBarLabel] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("all");
   const [countryOption, setCountryOption] = useState([]);
+  const [compare, setCompare] = useState(false);
+  const [secondCountry, setSecondCountry] = useState("all");
   const today = new Date();
   const maxDate = new Date().setDate(today.getDate() - 1);
   const minDate = new Date(2020, 0, 22);
@@ -24,6 +23,10 @@ const BarChartContainer = ({ chartData }) => {
 
   const handleCountryChange = e => {
     setSelectedCountry(e.value);
+  };
+
+  const handleSecondCountryChange = e => {
+    setSecondCountry(e.value);
   };
 
   const changeDataType = e => {
@@ -52,6 +55,10 @@ const BarChartContainer = ({ chartData }) => {
         countryOption={countryOption}
         selectedCountry={selectedCountry}
         handleCountryChange={handleCountryChange}
+        compare={compare}
+        setCompare={setCompare}
+        secondCountry={secondCountry}
+        handleSecondCountryChange={handleSecondCountryChange}
         dataType={dataType}
         changeDataType={changeDataType}
         startDate={startDate}

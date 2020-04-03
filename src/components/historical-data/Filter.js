@@ -1,6 +1,6 @@
 import React from "react";
 import Select from "react-select";
-import { Col, Label } from "reactstrap";
+import { Col, Label, Input } from "reactstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -8,6 +8,10 @@ const Filter = ({
   countryOption,
   selectedCountry,
   handleCountryChange,
+  compare,
+  setCompare,
+  secondCountry,
+  handleSecondCountryChange,
   dataType,
   changeDataType,
   startDate,
@@ -51,6 +55,37 @@ const Filter = ({
           onChange={handleCountryChange}
         />
       </Col>
+      <Col md="12" xs="12" style={{ marginTop: "10px" }}>
+        <Label check>
+          Compare Another Country?{" "}
+          <Input
+            type="checkbox"
+            style={{ marginLeft: "20px", marginTop: "7px" }}
+            checked={compare}
+            onChange={() => setCompare(!compare)}
+          />
+        </Label>
+      </Col>
+      {compare && (
+        <>
+          <Col md="4" xs="12" style={{ marginTop: "10px" }}>
+            <Label>Select Country</Label>
+          </Col>
+          <Col md="8" xs="12" style={{ marginTop: "10px" }}>
+            <Select
+              options={countryOption}
+              className="country-selector"
+              classNamePrefix="country-select"
+              value={
+                secondCountry === "all"
+                  ? { value: "all", label: "All Countries" }
+                  : { value: secondCountry, label: secondCountry }
+              }
+              onChange={handleSecondCountryChange}
+            />
+          </Col>
+        </>
+      )}
       <Col md="4" xs="12" style={{ marginTop: "10px" }}>
         <Label>Select Date Range</Label>
       </Col>
