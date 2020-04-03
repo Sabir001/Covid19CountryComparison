@@ -29,7 +29,7 @@ const RecentData = ({
         <Label>Total Affected Countries: </Label> {affectedCountries}
       </Col>
       <Col xs="12" lg="12">
-        <Label>Date Updated: </Label> {lastUpdated.format("hh:mm A")}
+        <Label>Last Updated: </Label> {lastUpdated.format("hh:mm A")}
       </Col>
     </Row>
   );
