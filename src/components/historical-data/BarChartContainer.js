@@ -93,7 +93,7 @@ const BarChartContainer = ({ chartData }) => {
           scales: {
             xAxes: [
               {
-                stacked: true
+                stacked: false
               }
             ],
             yAxes: [
