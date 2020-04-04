@@ -5,6 +5,7 @@ import { getCountryOptionList, getCountryWiseData } from "../../utils/helper";
 
 const BarChartContainer = ({ chartData }) => {
   const [barData, setBarData] = useState([]);
+  const [secondBarData, setsecondBarData] = useState([]);
   const [dataType, setDataType] = useState("confirmed");
   const [barLabel, setBarLabel] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("all");
@@ -38,16 +39,32 @@ const BarChartContainer = ({ chartData }) => {
   }, [chartData]);
 
   useEffect(() => {
-    const { data, labels } = getCountryWiseData(
+    const firstDataSet = getCountryWiseData(
       chartData,
       selectedCountry,
       startDate,
       endDate,
       dataType
     );
-    setBarData(data);
-    setBarLabel(labels);
-  }, [selectedCountry, startDate, endDate, dataType, chartData]);
+    const secondDataSet = getCountryWiseData(
+      chartData,
+      secondCountry,
+      startDate,
+      endDate,
+      dataType
+    );
+    setsecondBarData(compare ? secondDataSet.data : []);
+    setBarData(firstDataSet.data);
+    setBarLabel(firstDataSet.labels);
+  }, [
+    selectedCountry,
+    startDate,
+    endDate,
+    dataType,
+    chartData,
+    compare,
+    secondCountry
+  ]);
 
   return (
     <>
@@ -72,14 +89,32 @@ const BarChartContainer = ({ chartData }) => {
         options={{
           legend: {
             onClick: e => e.stopPropagation()
+          },
+          scales: {
+            xAxes: [
+              {
+                stacked: true
+              }
+            ],
+            yAxes: [
+              {
+                stacked: false
+              }
+            ]
           }
         }}
         barData={barData}
+        secondBarData={secondBarData}
         barLabel={barLabel}
         datasetLabel={
           selectedCountry === "all"
             ? `World Wide ${dataType} Cases`
             : `${selectedCountry}'s  ${dataType} cases`
+        }
+        secondDataSetLabel={
+          secondCountry === "all"
+            ? `World Wide ${dataType} Cases`
+            : `${secondCountry}'s  ${dataType} cases`
         }
       />
     </>
