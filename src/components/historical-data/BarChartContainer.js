@@ -7,6 +7,7 @@ const BarChartContainer = ({ chartData }) => {
   const [barData, setBarData] = useState([]);
   const [secondBarData, setsecondBarData] = useState([]);
   const [dataType, setDataType] = useState("confirmed");
+  const [seccondDataType, setSeccondDataType] = useState("confirmed");
   const [barLabel, setBarLabel] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("all");
   const [countryOption, setCountryOption] = useState([]);
@@ -34,6 +35,10 @@ const BarChartContainer = ({ chartData }) => {
     setDataType(e.value);
   };
 
+  const changeSecondDataType = e => {
+    setSeccondDataType(e.value);
+  };
+
   useEffect(() => {
     setCountryOption(getCountryOptionList(chartData));
   }, [chartData]);
@@ -51,7 +56,7 @@ const BarChartContainer = ({ chartData }) => {
       secondCountry,
       startDate,
       endDate,
-      dataType
+      seccondDataType
     );
     setsecondBarData(compare ? secondDataSet.data : []);
     setBarData(firstDataSet.data);
@@ -63,6 +68,7 @@ const BarChartContainer = ({ chartData }) => {
     dataType,
     chartData,
     compare,
+    seccondDataType,
     secondCountry
   ]);
 
@@ -75,6 +81,8 @@ const BarChartContainer = ({ chartData }) => {
         compare={compare}
         setCompare={setCompare}
         secondCountry={secondCountry}
+        seccondDataType={seccondDataType}
+        changeSecondDataType={changeSecondDataType}
         handleSecondCountryChange={handleSecondCountryChange}
         dataType={dataType}
         changeDataType={changeDataType}
@@ -113,8 +121,8 @@ const BarChartContainer = ({ chartData }) => {
         }
         secondDataSetLabel={
           secondCountry === "all"
-            ? `World Wide ${dataType} Cases`
-            : `${secondCountry}'s  ${dataType} cases`
+            ? `World Wide ${seccondDataType} Cases`
+            : `${secondCountry}'s  ${seccondDataType} cases`
         }
       />
     </>

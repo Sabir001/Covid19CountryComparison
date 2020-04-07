@@ -11,6 +11,8 @@ const Filter = ({
   compare,
   setCompare,
   secondCountry,
+  seccondDataType,
+  changeSecondDataType,
   handleSecondCountryChange,
   dataType,
   changeDataType,
@@ -57,7 +59,7 @@ const Filter = ({
       </Col>
       <Col md="12" xs="12" style={{ marginTop: "10px" }}>
         <Label check>
-          Compare Another Country?{" "}
+          Compare Another?{" "}
           <Input
             type="checkbox"
             style={{ marginLeft: "20px", marginTop: "7px" }}
@@ -82,6 +84,22 @@ const Filter = ({
                   : { value: secondCountry, label: secondCountry }
               }
               onChange={handleSecondCountryChange}
+            />
+          </Col>
+          <Col md="4" xs="12" style={{ marginTop: "10px" }}>
+            <Label>Select Data Type</Label>
+          </Col>
+          <Col md="8" xs="12" style={{ marginTop: "10px" }}>
+            <Select
+              options={[
+                { label: "confirmed", value: "confirmed" },
+                { label: "recovered", value: "recovered" },
+                { label: "deaths", value: "deaths" }
+              ]}
+              className="country-selector"
+              classNamePrefix="country-select"
+              value={{ value: seccondDataType, label: seccondDataType }}
+              onChange={changeSecondDataType}
             />
           </Col>
         </>
