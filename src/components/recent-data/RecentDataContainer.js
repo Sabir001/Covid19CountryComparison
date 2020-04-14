@@ -30,7 +30,7 @@ function RecentDataContainer() {
   `);
 
   const [selectedCountry, setSelectedCountry] = useState({
-    label: "all",
+    label: "All Countries",
     value: "all"
   });
 
@@ -65,7 +65,7 @@ function RecentDataContainer() {
 
   const changeCountry = e => {
     setSelectedCountry(e);
-    if (e.label === "all") {
+    if (e.value === "all") {
       setSelectedData(allCountryData);
     } else {
       recentData &&
@@ -91,10 +91,12 @@ function RecentDataContainer() {
     return <></>;
   }
 
-  const countries = recentData.allRestApiRecents.edges.map(node => ({
+  let countries = recentData.allRestApiRecents.edges.map(node => ({
     label: node.node.country,
     value: node.node.country
   }));
+
+  countries = [{ label: "All Countries", value: "all" }, ...countries];
 
   return (
     <div>
