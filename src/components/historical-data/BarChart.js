@@ -41,7 +41,6 @@ const BarChartContainer = ({
   };
   return (
     <Col md="12" xs="12">
-      {console.log(horizontalBarData)}
       <Bar options={options} data={horizontalBarData} />
     </Col>
   );
