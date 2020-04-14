@@ -92,3 +92,7 @@ export const getCountryWiseData = (
   }
   return { data, labels };
 };
+
+export const convertNumbersInCommas = number => {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
