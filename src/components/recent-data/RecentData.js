@@ -2,28 +2,21 @@ import React from "react";
 import { Col, Row, Label } from "reactstrap";
 import moment from "moment";
 
-const RecentData = ({
-  totalCases,
-  totalRecovered,
-  totalDeaths,
-  totalActiveCases,
-  affectedCountries,
-  updatedTime
-}) => {
+const RecentData = ({ recentData, affectedCountries, updatedTime }) => {
   const lastUpdated = moment(updatedTime);
   return (
     <Row>
       <Col xs="12" lg="12">
-        <Label>Total Cases: </Label> {totalCases}
+        <Label>Total Cases: </Label> {recentData.cases}
       </Col>
       <Col xs="12" lg="12">
-        <Label>Total Deaths: </Label> {totalDeaths}
+        <Label>Total Deaths: </Label> {recentData.deaths}
       </Col>
       <Col xs="12" lg="12">
-        <Label>Total Recovered: </Label> {totalRecovered}
+        <Label>Total Recovered: </Label> {recentData.recovered}
       </Col>
       <Col xs="12" lg="12">
-        <Label>Total Active Cases: </Label> {totalActiveCases}
+        <Label>Total Active Cases: </Label> {recentData.active}
       </Col>
       <Col xs="12" lg="12">
         <Label>Total Affected Countries: </Label> {affectedCountries}
