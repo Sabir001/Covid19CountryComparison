@@ -7,16 +7,20 @@ const RecentData = ({ recentData, affectedCountries, updatedTime }) => {
   return (
     <Row>
       <Col xs="12" lg="12">
-        <Label>Total Cases: </Label> {recentData.cases}
+        <Label>Total Cases: </Label>{" "}
+        {recentData.cases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
       </Col>
       <Col xs="12" lg="12">
-        <Label>Total Deaths: </Label> {recentData.deaths}
+        <Label>Total Deaths: </Label>{" "}
+        {recentData.deaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
       </Col>
       <Col xs="12" lg="12">
-        <Label>Total Recovered: </Label> {recentData.recovered}
+        <Label>Total Recovered: </Label>{" "}
+        {recentData.recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
       </Col>
       <Col xs="12" lg="12">
-        <Label>Total Active Cases: </Label> {recentData.active}
+        <Label>Total Active Cases: </Label>{" "}
+        {recentData.active.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
       </Col>
       <Col xs="12" lg="12">
         <Label>Total Affected Countries: </Label> {affectedCountries}
