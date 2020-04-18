@@ -4,7 +4,7 @@ import React from "react";
 import { Col, Navbar, NavbarBrand, Nav } from "reactstrap";
 import DarkMode from "./darkMode";
 
-import "../styles/index.scss";
+import "../styles/style.css";
 
 class Header extends React.Component {
   constructor(props) {

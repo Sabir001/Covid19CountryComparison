@@ -11,7 +11,7 @@ import PropTypes from "prop-types";
 import Header from "./header";
 import "./layout.css";
 import "./loader.css";
-import "../styles/index.scss";
+import "../styles/style.css";
 
 const Layout = ({ children }) => {
   return (
