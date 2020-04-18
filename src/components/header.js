@@ -5,7 +5,6 @@ import { Col, Navbar, NavbarBrand, Nav } from "reactstrap";
 import DarkMode from "./darkMode";
 
 import "../styles/index.scss";
-import Image from "../components/image";
 
 class Header extends React.Component {
   constructor(props) {
@@ -49,12 +48,6 @@ class Header extends React.Component {
             <NavbarBrand
               style={{ display: "flex", flexWrap: "wrap", boxShadow: "none" }}
             >
-              <Image
-                src="icon.png"
-                width={48}
-                topMargin={-5}
-                alt="Covid19 Comparison"
-              />{" "}
               <Col className="d-none d-sm-block">Covid19 Comparison</Col>
             </NavbarBrand>
             <Nav className="ml-auto" navbar>
