@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
-import defaultOpenGraphImage from "../../content/assets/opengraph-default.png";
 
 function SEO({ description, lang, meta, keywords, title, type, image, pathName }) {
   return (
@@ -11,8 +10,6 @@ function SEO({ description, lang, meta, keywords, title, type, image, pathName }
       render={data => {
         const metaDescription =
           description || data.site.siteMetadata.description;
-        const ogImageUrl =
-          data.site.siteMetadata.siteUrl + (image || defaultOpenGraphImage);
         const ogType = type;
         return (
           <Helmet
@@ -29,10 +26,6 @@ function SEO({ description, lang, meta, keywords, title, type, image, pathName }
               {
                 name: `yandex-verification`,
                 content: `c2523ed32cc4152f`
-              },
-              {
-                name: `image`,
-                content: ogImageUrl
               },
               {
                 name: `og:site_name`,
@@ -55,10 +48,6 @@ function SEO({ description, lang, meta, keywords, title, type, image, pathName }
                 content: ogType
               },
               {
-                property: `og:image`,
-                content: ogImageUrl
-              },
-              {
                 name: `twitter:card`,
                 content: `summary_large_image`
               },
@@ -77,10 +66,6 @@ function SEO({ description, lang, meta, keywords, title, type, image, pathName }
               {
                 name: `twitter:description`,
                 content: metaDescription
-              },
-              {
-                name: `twitter:image`,
-                content: ogImageUrl
               }
             ]
               .concat(
