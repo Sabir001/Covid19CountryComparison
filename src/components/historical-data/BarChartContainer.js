@@ -7,11 +7,11 @@ const BarChartContainer = ({ chartData }) => {
   const [barData, setBarData] = useState([]);
   const [secondBarData, setsecondBarData] = useState([]);
   const [dataType, setDataType] = useState("confirmed");
-  const [seccondDataType, setSeccondDataType] = useState("confirmed");
+  const [seccondDataType, setSeccondDataType] = useState("recovered");
   const [barLabel, setBarLabel] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("all");
   const [countryOption, setCountryOption] = useState([]);
-  const [compare, setCompare] = useState(false);
+  const [compare, setCompare] = useState(true);
   const [secondCountry, setSecondCountry] = useState("all");
   const today = new Date();
   const maxDate = new Date().setDate(today.getDate() - 1);
