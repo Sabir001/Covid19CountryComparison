@@ -228,7 +228,7 @@ ul.post-tags li {
     padding-top: 5px;
     padding-bottom: 5px;
     background-color: #202020;
-    box-shadow: 2px 2px 2px #e8e8e8;
+    box-shadow: 2px 2px 2px #101010;
 }
 .dark .navbar-light .navbar-nav .nav-link, .dark .navbar-light .navbar-brand {
     color: rgba(255, 255, 255, 0.9) !important;
