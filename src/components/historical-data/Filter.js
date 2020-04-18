@@ -125,17 +125,6 @@ const Filter = ({
                 Deaths
               </Button>
             </ButtonGroup>
-            <Select
-              options={[
-                { label: "confirmed", value: "confirmed" },
-                { label: "recovered", value: "recovered" },
-                { label: "deaths", value: "deaths" }
-              ]}
-              className="country-selector"
-              classNamePrefix="country-select"
-              value={{ value: seccondDataType, label: seccondDataType }}
-              onChange={changeSecondDataType}
-            />
           </Col>
         </>
       )}
