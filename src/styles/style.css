@@ -212,22 +212,22 @@ ul.post-tags li {
 
 
 .dark {
-    background: #f0f0f0;
+    background: #202020;
     color: rgba(255, 255, 255, 0.9);
 }
 .dark #___gatsby {
-    background-color: #f0f0f0;
+    background-color: #202020;
 }
 .dark h1 {
     color: white;
 }
 .dark .navbar {
-    background-color: #f0f0f0;
+    background-color: #202020;
 }
 .dark .navbar.compressed {
     padding-top: 5px;
     padding-bottom: 5px;
-    background-color: #f0f0f0;
+    background-color: #202020;
     box-shadow: 2px 2px 2px #e8e8e8;
 }
 .dark .navbar-light .navbar-nav .nav-link, .dark .navbar-light .navbar-brand {
@@ -243,28 +243,28 @@ ul.post-tags li {
     padding: 0;
 }
 .dark .country-selector div {
-    background-color: #f0f0f0;
+    background-color: #202020;
     color: rgba(255, 255, 255, 0.9);
 }
 .dark .country-selector div:hover {
-    background-color: #e8e8e8;
+    background-color: #202020;
 }
 .dark .react-datepicker__header {
-    background-color: #f0f0f0;
+    background-color: #202020;
 }
 .dark .react-datepicker__header div {
     color: rgba(255, 255, 255, 0.9);
 }
 .dark .react-datepicker-wrapper div {
-    background-color: #f0f0f0;
+    background-color: #202020;
     color: rgba(255, 255, 255, 0.9);
 }
 .dark .react-datepicker-wrapper div input {
-    background-color: #f0f0f0;
+    background-color: #202020;
     color: rgba(255, 255, 255, 0.9);
 }
 .dark .site-footer {
-    background-color: #f0f0f0;
+    background-color: #202020;
     padding: 10px;
     text-align: center;
 }
@@ -305,12 +305,12 @@ ul.post-tags li {
     color: rgba(255, 255, 255, 0.9);
 }
 .dark .nav {
-    background: #f0f0f0;
-    border-color: #f0f0f0;
+    background: #202020;
+    border-color: #202020;
 }
 .dark .nav.scroll {
     background: #e3e3e3;
-    border-color: #e3e3e3;
+    border-color: #101010;
 }
 .dark .nav .brand a {
     color: rgba(255, 255, 255, 0.9);
