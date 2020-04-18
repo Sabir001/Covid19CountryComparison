@@ -1,6 +1,6 @@
 import React from "react";
 import Select from "react-select";
-import { Col, Label, Input } from "reactstrap";
+import { Col, Label, Input, Button, ButtonGroup } from "reactstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -29,17 +29,29 @@ const Filter = ({
         <Label>Select Data Type</Label>
       </Col>
       <Col md="8" xs="12">
-        <Select
-          options={[
-            { label: "confirmed", value: "confirmed" },
-            { label: "recovered", value: "recovered" },
-            { label: "deaths", value: "deaths" }
-          ]}
-          className="country-selector"
-          classNamePrefix="country-select"
-          value={{ value: dataType, label: dataType }}
-          onChange={changeDataType}
-        />
+        <ButtonGroup>
+          <Button
+            color="secondary"
+            onClick={() => changeDataType("confirmed")}
+            active={dataType === "confirmed"}
+          >
+            Confirmed
+          </Button>
+          <Button
+            color="secondary"
+            onClick={() => changeDataType("recovered")}
+            active={dataType === "recovered"}
+          >
+            Recovered
+          </Button>
+          <Button
+            color="secondary"
+            onClick={() => changeDataType("deaths")}
+            active={dataType === "deaths"}
+          >
+            Deaths
+          </Button>
+        </ButtonGroup>
       </Col>
       <Col md="4" xs="12" style={{ marginTop: "10px" }}>
         <Label>Select Country</Label>
@@ -90,6 +102,29 @@ const Filter = ({
             <Label>Select Data Type</Label>
           </Col>
           <Col md="8" xs="12" style={{ marginTop: "10px" }}>
+            <ButtonGroup>
+              <Button
+                color="secondary"
+                onClick={() => changeSecondDataType("confirmed")}
+                active={seccondDataType === "confirmed"}
+              >
+                Confirmed
+              </Button>
+              <Button
+                color="secondary"
+                onClick={() => changeSecondDataType("recovered")}
+                active={seccondDataType === "recovered"}
+              >
+                Recovered
+              </Button>
+              <Button
+                color="secondary"
+                onClick={() => changeSecondDataType("deaths")}
+                active={seccondDataType === "deaths"}
+              >
+                Deaths
+              </Button>
+            </ButtonGroup>
             <Select
               options={[
                 { label: "confirmed", value: "confirmed" },

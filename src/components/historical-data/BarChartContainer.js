@@ -32,11 +32,11 @@ const BarChartContainer = ({ chartData }) => {
   };
 
   const changeDataType = e => {
-    setDataType(e.value);
+    setDataType(e);
   };
 
   const changeSecondDataType = e => {
-    setSeccondDataType(e.value);
+    setSeccondDataType(e);
   };
 
   useEffect(() => {
