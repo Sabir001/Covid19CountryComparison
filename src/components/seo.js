@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 
 function SEO({ description, lang, meta, keywords, title, type, image, pathName }) {
@@ -71,9 +71,9 @@ function SEO({ description, lang, meta, keywords, title, type, image, pathName }
               .concat(
                 keywords.length > 0
                   ? {
-                      name: `keywords`,
-                      content: keywords.join(`, `)
-                    }
+                    name: `keywords`,
+                    content: keywords.join(`, `)
+                  }
                   : []
               )
               .concat(meta)}
