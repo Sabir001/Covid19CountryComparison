@@ -81,18 +81,6 @@ module.exports = {
         ]
       }
     },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Covid19 Country Comparison`,
-        short_name: `covid19-comparison`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#197BEB`,
-        display: `minimal-ui`,
-        icon: `src/images/icon.png`
-      }
-    },
     `gatsby-plugin-remove-serviceworker`
   ]
 };
