@@ -641,3 +641,7 @@ blockquote p {
 ul{
   list-style-type: square;
 }
+
+.btn-secondary {
+  z-index: 0 !important;
+}
